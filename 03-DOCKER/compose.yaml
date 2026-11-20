@@ -1,0 +1,14 @@
+services:
+  notes:
+    image: ad-usb/notes:1.0-amd64
+    platform: linux/amd64
+    pull_policy: never
+    ports:
+      - "127.0.0.1:18765:18765"
+    volumes:
+      - notes-data:/data
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+volumes:
+  notes-data: {}
